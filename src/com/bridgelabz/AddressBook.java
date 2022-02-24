@@ -5,7 +5,7 @@ import java.util.Scanner;
 	
 	public class AddressBook {
 		public static void main(String[] args) {
-		System.out.println("Welcome to the address book system");
+		System.out.println("Welcome to the AddressBook");
 		ArrayList<Contacts> array = new ArrayList<Contacts>();
 		try (Scanner sc = new Scanner(System.in)) {
 			try (Scanner sc1 = new Scanner(System.in)) {
