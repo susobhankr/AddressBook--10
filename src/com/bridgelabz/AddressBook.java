@@ -11,11 +11,12 @@ import java.util.Scanner;
 				try (Scanner sc1 = new Scanner(System.in)) {
 					int choice;
 					do {
-						System.out.println("1.INSERT" + "\n2.DISPLAY" + "\n3.EDIT");
+						System.out.println("1.INSERT" + "\n2.DISPLAY" + "\n3.EDIT" + "\n4.Delete");
 						System.out.println("Enter your 1st choice");
 						choice = sc.nextInt();
 
 						switch (choice) {
+						// To Add Contact
 						case 1:
 							System.out.print("Enter First Name: ");
 							String firstName = sc1.nextLine();
@@ -37,9 +38,15 @@ import java.util.Scanner;
 									email);
 							array.add(contact);
 							break;
+						// To Display Contact
 						case 2:
-							System.out.println(array);
-							break;
+							java.util.Iterator<Contacts> iterator = array.iterator();
+							while (iterator.hasNext()) {
+								contact = iterator.next();
+								System.out.println(array);
+								break;
+							}
+							// To Edit Contact
 						case 3:
 							boolean found = false;
 							System.out.println("Enter first name of the person for update ");
@@ -54,8 +61,10 @@ import java.util.Scanner;
 
 							while (listIterator.hasNext()) {
 								contact = listIterator.next();
-
-								if (contact.getFirstName().equals(firstName)) { // entering the condition if fname matches
+								/*
+								 * Entering the condition if firstname matches
+								 */
+								if (contact.getFirstName().equals(firstName)) {
 
 									System.out.print("Enter new first Name: ");
 									firstName = sc1.nextLine();
@@ -70,8 +79,8 @@ import java.util.Scanner;
 									System.out.print("Enter zip code : ");
 									zipcode = sc.nextInt();
 									System.out.print("Enter phone number: ");
-									phoneNumber= sc1.nextLine();
-									System.out.print("Enter your eMail ID: ");
+									phoneNumber = sc1.nextLine();
+									System.out.print("Enter your email ID: ");
 									email = sc1.nextLine();
 									listIterator.set(new Contacts(firstName, lastName, address, city, state, zipcode,
 											phoneNumber, email));
@@ -81,19 +90,42 @@ import java.util.Scanner;
 							System.out.println("_____________________________________");
 
 							if (!found) {
-								System.out.println("Record not found");// o/p for mismatch first name
+								System.out.println("Record not found");
 							} else {
 								System.out.println("Record is updated successfully");
 							}
 							System.out.println("_______________________________________");
 							break;
+						// To Delete Contact
+						case 4:
+							found = false;
+							System.out.println("Enter first name of the person for delete ");
+							firstName = sc1.nextLine();
+							System.out.println("____________________________________");
+							iterator = array.iterator();
+							while (iterator.hasNext()) {
+								contact = iterator.next();
+								if (contact.getFirstName().equals(firstName)) {
+									iterator.remove();
+									found = true;
+								}
+							}
+							System.out.println("____________________________________");
+							if (!found) {
+								System.out.println("Record not found");
+							} else {
+								System.out.println("Record is deleted successfully");
+							}
+							System.out.println("_____________________________________");
+							break;
+
 						default:
 							System.out.println("default");
 
 						}
 					} while (choice != 0);
-					System.out.println("Invalid Choice!!");
+					System.out.println("Invalid Choice!!"); // Print Invalid Result In Contact
+				}
 			}
 		}
-	}
 }
