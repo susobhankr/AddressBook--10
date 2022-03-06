@@ -2,7 +2,6 @@ package com.bridgelabz;
 import java.util.ArrayList;
 import java.util.ListIterator;
 import java.util.Scanner;
-	
 	public class AddressBook {
 		public static void main(String[] args) {
 			System.out.println("Welcome to the AddressBook");
@@ -33,9 +32,9 @@ import java.util.Scanner;
 							System.out.print("Enter phone number: ");
 							String phoneNumber = sc1.nextLine();
 							System.out.print("Enter your email: ");
-							String email = sc1.nextLine();
+							String emailId = sc1.nextLine();
 							Contacts contact = new Contacts(firstName, lastName, address, city, state, zipcode, phoneNumber,
-									email);
+									emailId);
 							array.add(contact);
 							break;
 						// To Display Contact
@@ -79,11 +78,11 @@ import java.util.Scanner;
 									System.out.print("Enter zip code : ");
 									zipcode = sc.nextInt();
 									System.out.print("Enter phone number: ");
-									phoneNumber = sc1.nextLine();
+									phoneNumber= sc1.nextLine();
 									System.out.print("Enter your email ID: ");
-									email = sc1.nextLine();
+									emailId = sc1.nextLine();
 									listIterator.set(new Contacts(firstName, lastName, address, city, state, zipcode,
-											phoneNumber, email));
+											phoneNumber, emailId));
 									found = true;
 								}
 							}
